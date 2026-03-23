@@ -1,0 +1,569 @@
+{% extends "base.html" %}
+
+{% block title %}Strommarktberatung für Betreiber von Solaranlagen – Direktvermarktung unabhängig einordnen{% endblock %}
+{% block meta_description %}Unabhängige Einordnung von Direktvermarktungsangeboten, Vergütungsmodellen und Vertragsstrukturen für Betreiber von Photovoltaikanlagen.{% endblock %}
+
+{% block head_extra %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Strommarktberatung – Direktvermarktung PV",
+  "description": "Unabhängige Einordnung von Direktvermarktungsangeboten für Betreiber von Solaranlagen.",
+  "serviceType": "Energieberatung",
+  "areaServed": "DE",
+  "availableLanguage": "German"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<!-- ═══════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<section class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-24 sm:py-32">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="max-w-2xl">
+      <div class="inline-flex items-center gap-2 bg-solar-400/10 border border-solar-400/30 text-solar-300 text-xs font-medium px-3 py-1.5 rounded-full mb-6">
+        <span class="w-1.5 h-1.5 bg-solar-400 rounded-full"></span>
+        Unabhängige Fachberatung
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-5">
+        Strommarktberatung für<br class="hidden sm:block" />
+        Betreiber von <span class="text-solar-400">Solaranlagen</span>
+      </h1>
+
+      <p class="text-lg text-slate-300 leading-relaxed mb-8">
+        Unabhängige Einordnung von Direktvermarktungsangeboten, Vergütungsmodellen
+        und Vertragsstrukturen für Betreiber von Photovoltaikanlagen.
+      </p>
+
+      <ul class="flex flex-col sm:flex-row gap-3 sm:gap-6 text-sm text-slate-300 mb-10">
+        {% for point in [
+          "Vergleich von Direktvermarkter-Angeboten",
+          "Erlösmodelle und Preisstruktur verstehen",
+          "Risiken in Verträgen erkennen"
+        ] %}
+        <li class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-solar-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          {{ point }}
+        </li>
+        {% endfor %}
+      </ul>
+
+      <a href="#kontakt"
+         id="hero-cta"
+         class="inline-block bg-solar-400 hover:bg-solar-300 text-slate-900 font-semibold px-6 py-3 rounded-md transition-colors">
+        Kostenloses Erstgespräch
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     PROBLEM
+════════════════════════════════════════════ -->
+<section class="py-20 bg-white">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-12 items-start">
+
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-6">
+          Direktvermarktung ist schwer zu vergleichen
+        </h2>
+        <ul class="space-y-3 mb-8">
+          {% for item in [
+            "Direktvermarkter wollen Anlagendaten — konkrete Zahlen nennen sie erst danach, wenn überhaupt",
+            "Angebote sehen ähnlich aus, unterscheiden sich aber im Vergütungsmodell und in der Risikoverteilung",
+            "Vertragsklauseln zu Abregelung, negativen Preisen und Ausgleichsenergie sind selten transparent",
+            "Welche Risiken trägt der Betreiber — und welche der Vermarkter?"
+          ] %}
+          <li class="flex items-start gap-3 text-slate-700">
+            <div class="w-5 h-5 bg-amber-50 border border-amber-200 rounded flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01"/>
+              </svg>
+            </div>
+            <span class="text-sm leading-relaxed">{{ item }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="sm:pt-12">
+        <blockquote class="border-l-4 border-solar-400 pl-5 text-slate-600 leading-relaxed text-sm space-y-3">
+          <p>
+            Angebote von Direktvermarktern unterscheiden sich oft nicht nur in der Servicegebühr,
+            sondern auch in der Struktur des Vergütungsmodells, der Risikoverteilung und den
+            technischen Anforderungen.
+          </p>
+          <p>
+            Ohne genaue Einordnung ist es schwer zu beurteilen, welches Angebot langfristig
+            wirtschaftlich sinnvoll ist.
+          </p>
+        </blockquote>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     TYPISCHE MISSVERSTÄNDNISSE
+════════════════════════════════════════════ -->
+<section class="py-20 bg-slate-50">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+
+    <div class="max-w-xl mb-10">
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        Drei typische Missverständnisse
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+
+      {% set myths = [
+        (
+          "Alle Direktvermarkter zahlen ungefähr gleich",
+          "Die Servicegebühr ist nur ein Teil der Gleichung. Entscheidend ist das zugrunde liegende Vergütungsmodell – Marktwert, Spotpreis oder Index – das maßgeblich beeinflusst, wie viel tatsächlich beim Betreiber ankommt."
+        ),
+        (
+          "Direktvermarktung ist nur eine technische Formalität",
+          "Hinter jedem Vertrag stehen wirtschaftliche Mechanismen: Prognoseabweichungen, Bilanzkreisverantwortung und Risikoverteilung. Wie diese geregelt sind, beeinflusst das Ergebnis erheblich."
+        ),
+        (
+          "Der angebotene Preis ist mein tatsächlicher Erlös",
+          "Negative Preise, Ausgleichsenergie, kommerzielle Abregelung – all das kann den tatsächlichen Erlös gegenüber dem nominalen Angebotspreis deutlich verschieben."
+        )
+      ] %}
+
+      {% for myth, explanation in myths %}
+      <div class="bg-white rounded-xl border border-slate-200 p-6">
+        <div class="flex items-start gap-2 mb-4">
+          <span class="text-slate-300 text-2xl leading-none mt-0.5 font-serif">"</span>
+          <p class="text-slate-800 font-medium text-sm leading-snug">{{ myth }}</p>
+        </div>
+        <div class="h-px bg-slate-100 mb-4"></div>
+        <p class="text-sm text-slate-600 leading-relaxed">{{ explanation }}</p>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     VERGÜTUNGSMODELLE
+════════════════════════════════════════════ -->
+<section id="verguetung" class="py-20 bg-white">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+
+    <div class="max-w-2xl mb-10">
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+        Vergütungsmodelle in der Direktvermarktung
+      </h2>
+      <p class="text-slate-600 leading-relaxed mb-3">
+        Direktvermarkter verwenden unterschiedliche Modelle zur Berechnung der Erlöse einer Photovoltaikanlage.
+        Die Unterschiede liegen nicht nur in der Servicegebühr, sondern oft im zugrunde liegenden Vergütungsmodell.
+      </p>
+      <p class="text-slate-600 leading-relaxed">
+        Selbst wenn Angebote ähnlich aussehen, können sich durch unterschiedliche Modelle deutliche Unterschiede
+        bei den tatsächlichen Erlösen ergeben.
+      </p>
+    </div>
+
+    {%- macro badge(level, label) -%}
+      {%- if level == "hoch" -%}
+        <span class="inline-block px-2 py-0.5 rounded text-xs font-medium text-red-600 bg-red-50">{{ label }}</span>
+      {%- elif level == "mittel" -%}
+        <span class="inline-block px-2 py-0.5 rounded text-xs font-medium text-amber-600 bg-amber-50">{{ label }}</span>
+      {%- elif level == "relativ_hoch" -%}
+        <span class="inline-block px-2 py-0.5 rounded text-xs font-medium text-amber-700 bg-amber-50">{{ label }}</span>
+      {%- else -%}
+        <span class="inline-block px-2 py-0.5 rounded text-xs font-medium text-slate-600 bg-slate-100">{{ label }}</span>
+      {%- endif -%}
+    {%- endmacro -%}
+
+    {% set models = [
+      (
+        "Marktwert-Modell",
+        "Erlös orientiert sich am Referenzwert Marktwert Solar",
+        "relativ hoch", "relativ_hoch",
+        "mittel",       "mittel",
+        "Häufig im Marktprämienmodell verwendet"
+      ),
+      (
+        "Spotpreis-Modell",
+        "Vermarktung direkt zum Day-Ahead- oder Intraday-Preis",
+        "hoch", "hoch",
+        "hoch", "hoch",
+        "Erlöse schwanken stärker mit dem Strommarkt"
+      ),
+      (
+        "Index-Modell",
+        "Erlös basiert auf einem vordefinierten Preisindex",
+        "mittel", "mittel",
+        "mittel", "mittel",
+        "Index passt nicht immer exakt zum Einspeiseprofil"
+      ),
+      (
+        "Revenue-Share-Modell",
+        "Betreiber und Vermarkter teilen sich die Vermarktungserlöse",
+        "unterschiedlich", "unterschiedlich",
+        "unterschiedlich", "unterschiedlich",
+        "Vermarkter erhält Anteil an Erlösen"
+      )
+    ] %}
+
+    <!-- Desktop table -->
+    <div class="hidden sm:block overflow-x-auto rounded-xl border border-slate-200 mb-6">
+      <table class="w-full text-sm" aria-label="Vergleich von Vergütungsmodellen in der Direktvermarktung">
+        <thead>
+          <tr class="bg-slate-900 text-white">
+            <th class="text-left px-5 py-3.5 font-semibold w-44">Modell</th>
+            <th class="text-left px-5 py-3.5 font-semibold">Grundidee</th>
+            <th class="text-left px-5 py-3.5 font-semibold w-28">Transparenz</th>
+            <th class="text-left px-5 py-3.5 font-semibold w-36">Marktpreis-Risiko</th>
+            <th class="text-left px-5 py-3.5 font-semibold">Typische Besonderheiten</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          {% for name, idea, transp_label, transp_key, risk_label, risk_key, detail in models %}
+          <tr class="bg-white hover:bg-slate-50 transition-colors">
+            <td class="px-5 py-4 font-semibold text-slate-900 align-top">{{ name }}</td>
+            <td class="px-5 py-4 text-slate-600 align-top">{{ idea }}</td>
+            <td class="px-5 py-4 align-top">{{ badge(transp_key, transp_label) }}</td>
+            <td class="px-5 py-4 align-top">{{ badge(risk_key, risk_label) }}</td>
+            <td class="px-5 py-4 text-slate-600 align-top">{{ detail }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Mobile cards -->
+    <div class="sm:hidden space-y-4 mb-6">
+      {% for name, idea, transp_label, transp_key, risk_label, risk_key, detail in models %}
+      <div class="bg-white rounded-xl border border-slate-200 p-5">
+        <div class="font-semibold text-slate-900 mb-3">{{ name }}</div>
+        <dl class="space-y-2 text-sm">
+          <div class="flex gap-2">
+            <dt class="text-slate-400 w-32 shrink-0">Grundidee</dt>
+            <dd class="text-slate-700">{{ idea }}</dd>
+          </div>
+          <div class="flex gap-2">
+            <dt class="text-slate-400 w-32 shrink-0">Transparenz</dt>
+            <dd>{{ badge(transp_key, transp_label) }}</dd>
+          </div>
+          <div class="flex gap-2">
+            <dt class="text-slate-400 w-32 shrink-0">Marktpreis-Risiko</dt>
+            <dd>{{ badge(risk_key, risk_label) }}</dd>
+          </div>
+          <div class="flex gap-2">
+            <dt class="text-slate-400 w-32 shrink-0">Besonderheiten</dt>
+            <dd class="text-slate-700">{{ detail }}</dd>
+          </div>
+        </dl>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Note + context box -->
+    <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 mb-5 text-sm text-slate-600 leading-relaxed">
+      <p class="mb-2">
+        Zwei Angebote mit ähnlichen Gebühren können durch unterschiedliche Vergütungsmodelle
+        zu deutlich unterschiedlichen Erlösen führen.
+      </p>
+      <p>
+        Entscheidend ist nicht nur, wie hoch die Servicegebühr ist, sondern wie der Erlös berechnet wird
+        und welche Risiken der Betreiber trägt.
+      </p>
+    </div>
+
+    <div class="bg-solar-50 border border-solar-200 rounded-xl p-6 mb-10">
+      <h3 class="font-semibold text-slate-900 mb-3 text-sm">Wovon hängt das passende Modell ab?</h3>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-700">
+        {% for factor in ["Anlagengröße", "Einspeiseprofil", "Eigenverbrauch", "Risikobereitschaft des Betreibers", "Vertragsstruktur des Direktvermarkters"] %}
+        <li class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 bg-solar-500 rounded-full shrink-0"></span>
+          {{ factor }}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- Section CTA -->
+    <div class="bg-slate-900 text-white rounded-2xl p-8 sm:p-10">
+      <h3 class="text-xl font-bold mb-3">Unsicher, welches Modell für Ihre Anlage sinnvoll ist?</h3>
+      <p class="text-slate-300 text-sm leading-relaxed mb-6 max-w-xl">
+        Angebote von Direktvermarktern unterscheiden sich nicht nur im Preis, sondern auch im
+        Vergütungsmodell und in der Risikoverteilung.
+      </p>
+      <a href="#kontakt" class="inline-block bg-solar-400 hover:bg-solar-300 text-slate-900 font-semibold px-6 py-3 rounded-md transition-colors text-sm">
+        Angebot einordnen lassen
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     CHECKLISTE
+════════════════════════════════════════════ -->
+<section id="checkliste" class="py-20 bg-slate-50">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 sm:p-12 flex flex-col sm:flex-row gap-8 items-start">
+      <div class="flex-1">
+        <div class="inline-flex items-center gap-2 bg-solar-400/10 border border-solar-400/30 text-solar-300 text-xs font-medium px-3 py-1.5 rounded-full mb-5">
+          Kostenlos
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+          Checkliste: Direktvermarkter für Ihre PV-Anlage wählen
+        </h2>
+        <p class="text-slate-300 leading-relaxed mb-3">
+          Viele Betreiber unterschreiben Direktvermarktungsverträge, ohne wichtige Unterschiede zu kennen.
+        </p>
+        <p class="text-slate-300 leading-relaxed mb-8">
+          Diese Checkliste zeigt, worauf es bei einem Angebot wirklich ankommt — bevor man unterschreibt.
+        </p>
+        <a href="/static/downloads/checkliste-direktvermarktung.pdf"
+           id="checklist-cta"
+           download
+           class="inline-flex items-center gap-2 bg-solar-400 hover:bg-solar-300 text-slate-900 font-semibold px-6 py-3 rounded-md transition-colors text-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+          </svg>
+          Checkliste herunterladen (PDF)
+        </a>
+      </div>
+      <div class="sm:w-60 shrink-0">
+        <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+          <div class="text-white font-semibold text-sm mb-4">Was die Checkliste abdeckt:</div>
+          <ul class="space-y-2 text-sm text-slate-300">
+            {% for punkt in [
+              "Umgang mit negativen Preisen",
+              "Kommerzielle Abregelung",
+              "Redispatch-Prozesse",
+              "Vergütungsmodelle",
+              "Ausgleichsenergie / Prognoserisiko",
+              "Eigenverbrauch",
+              "Technische Anforderungen",
+              "Abrechnungstransparenz"
+            ] %}
+            <li class="flex items-center gap-2">
+              <span class="w-4 h-4 bg-solar-400/20 text-solar-400 rounded flex items-center justify-center text-xs font-bold shrink-0">
+                {{ loop.index }}
+              </span>
+              {{ punkt }}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     LEISTUNGEN
+════════════════════════════════════════════ -->
+<section id="leistungen" class="py-20 bg-white">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+
+    <div class="max-w-xl mb-12">
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">Beratungsangebot</h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+      <div class="border border-slate-200 rounded-xl p-7">
+        <div class="w-9 h-9 bg-solar-50 rounded-lg flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-solar-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+        </div>
+        <h3 class="font-semibold text-slate-900 mb-4">Direktvermarktungsangebote einordnen</h3>
+        <ul class="space-y-2.5 text-sm text-slate-600">
+          {% for item in [
+            "Analyse der Vertragsstruktur und Klauseln",
+            "Erklärung der Preislogik und Vergütungsmodells",
+            "Einschätzung wirtschaftlicher Risiken",
+            "Vergleich mehrerer Angebote"
+          ] %}
+          <li class="flex items-start gap-2">
+            <span class="text-solar-400 mt-0.5 shrink-0">–</span>
+            {{ item }}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="border border-slate-200 rounded-xl p-7">
+        <div class="w-9 h-9 bg-solar-50 rounded-lg flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-solar-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+          </svg>
+        </div>
+        <h3 class="font-semibold text-slate-900 mb-4">Erlösmodell verstehen</h3>
+        <ul class="space-y-2.5 text-sm text-slate-600">
+          {% for item in [
+            "Marktwert Solar vs. Spotpreis",
+            "Revenue-Share-Modelle",
+            "Indexmodelle und ihre Tücken",
+            "Szenarienbasierte Erlösabschätzung"
+          ] %}
+          <li class="flex items-start gap-2">
+            <span class="text-solar-400 mt-0.5 shrink-0">–</span>
+            {{ item }}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     PREISE
+════════════════════════════════════════════ -->
+<section id="preise" class="py-20 bg-slate-50">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+
+    <div class="max-w-xl mb-10">
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">Honorar</h2>
+      <p class="text-slate-600 leading-relaxed">
+        Grundlage ist immer ein kurzes kostenloses Erstgespräch.
+        Der genaue Umfang hängt von Anlagengröße und Fragestellung ab.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+      {% for title, price, text in [
+        ("Angebots-Check", "ab 490 € netto", "Einordnung eines vorliegenden Angebots: Preisstruktur, Vergütungsmodell, wesentliche Klauseln."),
+        ("Angebotsvergleich", "auf Anfrage", "Strukturierter Vergleich mehrerer Angebote verschiedener Direktvermarkter."),
+        ("Erlösabschätzung", "auf Anfrage", "Szenarienbasierte Abschätzung möglicher Erlöse auf Basis des Einspeiseprofils und der Vertragskonditionen.")
+      ] %}
+      <div class="bg-white border border-slate-200 rounded-xl p-6">
+        <div class="text-xl font-bold text-slate-900 mb-1">{{ price }}</div>
+        <div class="text-sm font-semibold text-solar-600 mb-3">{{ title }}</div>
+        <p class="text-sm text-slate-600 leading-relaxed">{{ text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="text-xs text-slate-400 mt-4">Alle Preise zzgl. gesetzlicher MwSt.</p>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ÜBER MICH
+════════════════════════════════════════════ -->
+<section id="ueber" class="py-20 bg-white">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="max-w-xl">
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-6">Über mich</h2>
+      <p class="text-slate-600 leading-relaxed mb-4">
+        Ich arbeite im Umfeld der Stromvermarktung und beschäftige mich mit den wirtschaftlichen
+        und technischen Mechanismen des Strommarktes.
+      </p>
+      <p class="text-slate-600 leading-relaxed mb-6">
+        Ziel dieser Beratung ist es, Betreibern von Solaranlagen eine unabhängige Einordnung von
+        Angeboten und Vertragsmodellen zu ermöglichen — ohne Interessenkonflikte durch Provisionen
+        oder Vertriebsziele.
+      </p>
+      <p class="text-xs text-slate-400">
+        Diese Beratung ersetzt keine Rechts- oder Steuerberatung.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     KONTAKT
+════════════════════════════════════════════ -->
+<section id="kontakt" class="py-20 bg-slate-50">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-12">
+
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">Gespräch anfragen</h2>
+        <p class="text-slate-600 leading-relaxed mb-8">
+          Kurz beschreiben, was Sie beschäftigt — ich melde mich in der Regel
+          innerhalb von 1–2 Werktagen.
+        </p>
+        <ul class="space-y-3 text-sm text-slate-600">
+          {% for item in [
+            "Kostenloses Erstgespräch — kein Angebot, keine Verpflichtung",
+            "Anlagendaten und Angebote werden vertraulich behandelt"
+          ] %}
+          <li class="flex items-start gap-3">
+            <svg class="w-4 h-4 text-solar-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            {{ item }}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div>
+        <form action="/kontakt" method="POST" id="contact-form" class="space-y-5">
+
+          <div>
+            <label for="name" class="block text-sm font-medium text-slate-700 mb-1.5">
+              Name <span class="text-red-400">*</span>
+            </label>
+            <input type="text" id="name" name="name" required
+                   class="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-solar-400 focus:border-transparent transition"
+                   placeholder="Ihr Name" />
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium text-slate-700 mb-1.5">
+              E-Mail <span class="text-red-400">*</span>
+            </label>
+            <input type="email" id="email" name="email" required
+                   class="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-solar-400 focus:border-transparent transition"
+                   placeholder="ihre@email.de" />
+          </div>
+
+          <div>
+            <label for="nachricht" class="block text-sm font-medium text-slate-700 mb-1.5">
+              Nachricht <span class="text-slate-400 font-normal text-xs">(optional)</span>
+            </label>
+            <textarea id="nachricht" name="nachricht" rows="4"
+                      class="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-solar-400 focus:border-transparent transition resize-none"
+                      placeholder="Was beschäftigt Sie? Z.B. Angebote die Sie vorliegen haben, Fragen zur Preisstruktur..."></textarea>
+          </div>
+
+          <p class="text-xs text-slate-400">
+            Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten gemäß unserer
+            <a href="/datenschutz" class="underline hover:text-slate-600">Datenschutzerklärung</a> zu.
+          </p>
+
+          <button type="submit"
+                  class="w-full bg-solar-400 hover:bg-solar-500 text-slate-900 font-semibold px-6 py-3 rounded-md transition-colors text-sm">
+            Anfrage senden
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+
+{% block title %}Datenschutzerklärung – PV Direktvermarktung Beratung{% endblock %}
+{% block meta_description %}Datenschutzerklärung der PV Direktvermarktung Beratung von Konstantin Schubert.{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto px-4 sm:px-6 py-20">
+
+  <h1 class="text-3xl font-bold text-slate-900 mb-2">Datenschutzerklärung</h1>
+  <p class="text-slate-400 text-sm mb-12">Zuletzt aktualisiert: März 2026</p>
+
+  <!-- Quick nav -->
+  <nav class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-12 text-sm">
+    <div class="font-medium text-slate-700 mb-3">Inhalt</div>
+    <ol class="space-y-1.5 text-slate-500 list-decimal list-inside">
+      <li><a href="#verantwortlicher" class="hover:text-slate-800 transition-colors">Verantwortlicher</a></li>
+      <li><a href="#erhebung" class="hover:text-slate-800 transition-colors">Welche Daten werden erhoben?</a></li>
+      <li><a href="#zweck" class="hover:text-slate-800 transition-colors">Zweck der Verarbeitung</a></li>
+      <li><a href="#rechtsgrundlage" class="hover:text-slate-800 transition-colors">Rechtsgrundlage</a></li>
+      <li><a href="#speicher" class="hover:text-slate-800 transition-colors">Speicherdauer</a></li>
+      <li><a href="#hosting" class="hover:text-slate-800 transition-colors">Hosting</a></li>
+      <li><a href="#cookies" class="hover:text-slate-800 transition-colors">Cookies und Tracking</a></li>
+      <li><a href="#rechte" class="hover:text-slate-800 transition-colors">Ihre Rechte</a></li>
+      <li><a href="#beschwerde" class="hover:text-slate-800 transition-colors">Beschwerderecht</a></li>
+    </ol>
+  </nav>
+
+  <div class="space-y-12 text-sm text-slate-700 leading-relaxed">
+
+    <!-- 1 -->
+    <section id="verantwortlicher">
+      <h2 class="text-lg font-semibold text-slate-900 mb-4 flex items-center gap-3">
+        <span class="w-7 h-7 bg-solar-100 text-solar-700 rounded-full flex items-center justify-center text-xs font-bold shrink-0">1</span>
+        Verantwortlicher
+      </h2>
+      <p class="mb-3">
+        Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:
+      </p>
+      <address class="not-italic bg-slate-50 border border-slate-200 rounded-lg p-4 text-slate-700">
+        Konstantin Schubert<br />
+        Friedhofstr. 4d<br />
+        24937 Flensburg<br />
+        E-Mail: <a href="mailto:mail@konstantinschubert.com" class="text-solar-600 hover:underline">mail@konstantinschubert.com</a>
+      </address>
+    </section>
+
+    <!-- 2 -->
+    <section id="erhebung">
+      <h2 class="text-lg font-semibold text-slate-900 mb-4 flex items-center gap-3">
+        <span class="w-7 h-7 bg-solar-100 text-solar-700 rounded-full flex items-center justify-center text-xs font-bold shrink-0">2</span>
+        Welche Daten werden erhoben?
+      </h2>
+
+      <div class="space-y-5">
+        <div>
+          <h3 class="font-medium text-slate-900 mb-2">Beim Besuch der Website</h3>
+          <p>
+            Beim Abruf dieser Website werden durch den Hosting-Anbieter technische Zugriffsdaten
+            in Server-Logfiles gespeichert. Dazu gehören IP-Adresse, Browsertyp, Betriebssystem,
+            Referrer-URL sowie Datum und Uhrzeit des Abrufs. Diese Daten werden nicht mit anderen
+            Datenquellen zusammengeführt und dienen ausschließlich der Sicherstellung des technischen Betriebs.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-medium text-slate-900 mb-2">Über das Kontaktformular</h3>
+          <p class="mb-3">
+            Wenn Sie das Kontaktformular nutzen, werden folgende Angaben verarbeitet:
+          </p>
+          <ul class="space-y-1.5 pl-4">
+            {% for item in [
+              ("Name", "Pflichtfeld"),
+              ("E-Mail-Adresse", "Pflichtfeld"),
+              ("Größe der PV-Anlage", "optional"),
+              ("Status der Anlage", "optional"),
+              ("Nachricht", "optional")
+            ] %}
+            <li class="flex items-baseline gap-2">
+              <span class="w-1.5 h-1.5 bg-solar-400 rounded-full shrink-0 mt-1.5"></span>
+              <span><span class="font-medium">{{ item[0] }}</span>
+              <span class="text-slate-400 text-xs ml-1">({{ item[1] }})</span></span>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section id="zweck">
+      <h2 class="text-lg font-semibold text-slate-900 mb-4 flex items-center gap-3">
+        <span class="w-7 h-7 bg-solar-100 text-solar-700 rounded-full flex items-center justify-center text-xs font-bold shrink-0">3</span>
+        Zweck der Verarbeitung
+      </h2>
+      <p class="mb-3">
+        Die über das Kontaktformular übermittelten Daten werden ausschließlich verwendet für:
+      </p>
+      <ul class="space-y-2 pl-4">
+        {% for purpose in [
+          "die Bearbeitung und Beantwortung Ihrer Anfrage",
+          "die Zusendung der angeforderten Checkliste",
+          "die Anbahnung eines möglichen Beratungsverhältnisses"
+        ] %}
+        <li class="flex items-start gap-2">
+          <span class="w-1.5 h-1.5 bg-solar-400 rounded-full shrink-0 mt-1.5"></span>
+          {{ purpose }}
+        </li>
+        {% endfor %}
+      </ul>
+      <p class="mt-4">
+        Eine Weitergabe an Dritte erfolgt nicht. Die Daten werden nicht für Werbezwecke
+        oder zur Profilerstellung verwendet.
+      </p>
+    </section>
+
+    <!-- 4 -->
+    <section id="rechtsgrundlage">
+      <h2 class="text-lg font-semibold text-slate-900 mb-4 flex items-center gap-3">
+        <span class="w-7 h-7 bg-solar-100 text-solar-700 rounded-full flex items-center justify-center text-xs font-bold shrink-0">4</span>
+        Rechtsgrundlage
+      </h2>
+      <div class="space-y-3">
+        <div class="flex gap-3 p-3.5 bg-slate-50 rounded-lg border border-slate-200">
+          <span class="text-xs font-mono bg-slate-200 text-slate-600 px-2 py-0.5 rounded shrink-0 h-fit mt-0.5">Art. 6 (1) b</span>
+          <p>Verarbeitung zur Durchführung vorvertraglicher Maßnahmen auf Anfrage der betroffenen Person (Kontaktformular, Angebotsanfragen).</p>
+        </div>
+        <div class="flex gap-3 p-3.5 bg-slate-50 rounded-lg border border-slate-200">
+          <span class="text-xs font-mono bg-slate-200 text-slate-600 px-2 py-0.5 rounded shrink-0 h-fit mt-0.5">Art. 6 (1) f</span>
+          <p>Berechtigtes Interesse an der Bearbeitung eingehender Anfragen sowie am technisch fehlerfreien Betrieb der Website (Server-Logs).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section id="speicher">
+      <h2 class="text-lg font-semibold text-slate-900 mb-4 flex items-center gap-3">
+        <span class="w-7 h-7 bg-solar-100 text-solar-700 rounded-full flex items-center justify-center text-xs font-bold shrink-0">5</span>
+        Speicherdauer
+      </h2>
+      <p>
+        Daten aus Kontaktanfragen werden gelöscht, sobald der Zweck der Verarbeitung entfallen ist –
+        in der Regel nach Abschluss der Kommunikation – sofern keine gesetzlichen Aufbewahrungspflichten
+        entgegenstehen. Server-Logfiles werden nach spätestens 30 Tagen automatisch gelöscht.
+      </p>
+    </section>
+
+    <!-- 6 -->
+    <section id="hosting">
+      <h2 class="text-lg font-semibold text-slate-900 mb-4 flex items-center gap-3">
+        <span class="w-7 h-7 bg-solar-100 text-solar-700 rounded-full flex items-center justify-center text-xs font-bold shrink-0">6</span>
+        Hosting
+      </h2>
+      <p>
+        Diese Website wird auf Servern eines externen Hosting-Anbieters betrieben.
+        Beim Abruf der Website werden technische Zugriffsdaten (u.a. IP-Adresse) durch den
+        Hosting-Anbieter im Rahmen normaler Serverprotokolle verarbeitet. Dies erfolgt auf
+        Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am technischen Betrieb).
+      </p>
+    </section>
+
+    <!-- 7 -->
+    <section id="cookies">
+      <h2 class="text-lg font-semibold text-slate-900 mb-4 flex items-center gap-3">
+        <span class="w-7 h-7 bg-solar-100 text-solar-700 rounded-full flex items-center justify-center text-xs font-bold shrink-0">7</span>
+        Cookies und Tracking
+      </h2>
+      <p>
+        Diese Website verwendet keine Tracking-Cookies und keine Dienste Dritter zur Analyse
+        des Nutzungsverhaltens (z.B. Google Analytics). Es werden ausschließlich technisch
+        notwendige Funktionen eingesetzt, die keiner Einwilligung bedürfen.
+      </p>
+    </section>
+
+    <!-- 8 -->
+    <section id="rechte">
+      <h2 class="text-lg font-semibold text-slate-900 mb-4 flex items-center gap-3">
+        <span class="w-7 h-7 bg-solar-100 text-solar-700 rounded-full flex items-center justify-center text-xs font-bold shrink-0">8</span>
+        Ihre Rechte
+      </h2>
+      <p class="mb-4">
+        Sie haben gegenüber dem Verantwortlichen folgende Rechte hinsichtlich Ihrer
+        personenbezogenen Daten:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {% for right, article in [
+          ("Auskunft über gespeicherte Daten", "Art. 15"),
+          ("Berichtigung unrichtiger Daten", "Art. 16"),
+          ("Löschung Ihrer Daten", "Art. 17"),
+          ("Einschränkung der Verarbeitung", "Art. 18"),
+          ("Datenübertragbarkeit", "Art. 20"),
+          ("Widerspruch gegen die Verarbeitung", "Art. 21")
+        ] %}
+        <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg border border-slate-200">
+          <span class="text-xs font-mono text-slate-400 shrink-0">{{ article }}</span>
+          <span class="text-slate-700">{{ right }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      <p class="mt-4">
+        Zur Ausübung Ihrer Rechte wenden Sie sich bitte an:
+        <a href="mailto:mail@konstantinschubert.com" class="text-solar-600 hover:underline">mail@konstantinschubert.com</a>
+      </p>
+    </section>
+
+    <!-- 9 -->
+    <section id="beschwerde">
+      <h2 class="text-lg font-semibold text-slate-900 mb-4 flex items-center gap-3">
+        <span class="w-7 h-7 bg-solar-100 text-solar-700 rounded-full flex items-center justify-center text-xs font-bold shrink-0">9</span>
+        Beschwerderecht
+      </h2>
+      <p class="mb-3">
+        Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung
+        Ihrer personenbezogenen Daten zu beschweren. Die zuständige Aufsichtsbehörde für
+        Schleswig-Holstein ist:
+      </p>
+      <address class="not-italic bg-slate-50 border border-slate-200 rounded-lg p-4 text-slate-700">
+        Unabhängiges Landeszentrum für Datenschutz Schleswig-Holstein (ULD)<br />
+        Holstenstraße 98<br />
+        24103 Kiel<br />
+        <a href="https://www.datenschutzzentrum.de" class="text-solar-600 hover:underline" target="_blank" rel="noopener">www.datenschutzzentrum.de</a>
+      </address>
+      <p class="mt-4">
+        Daneben steht Ihnen der Rechtsweg zu den zuständigen Zivilgerichten offen.
+      </p>
+    </section>
+
+  </div>
+</div>
+{% endblock %}

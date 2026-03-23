@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{% block title %}Unabhängige PV-Direktvermarktung Beratung{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}Unabhängige Beratung für Betreiber von Photovoltaikanlagen bei der Wahl und dem Vergleich von Direktvermarktern. Wirtschaftlich fundiert, herstellerunabhängig.{% endblock %}" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{% block og_title %}Unabhängige PV-Direktvermarktung Beratung{% endblock %}" />
+  <meta property="og:description" content="{% block og_description %}Unabhängige Beratung für PV-Betreiber beim Vergleich von Direktvermarktern.{% endblock %}" />
+  <meta property="og:locale" content="de_DE" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            solar: {
+              50:  '#fefce8',
+              100: '#fef9c3',
+              200: '#fef08a',
+              300: '#fde047',
+              400: '#facc15',
+              500: '#eab308',
+              600: '#ca8a04',
+              700: '#a16207',
+              800: '#854d0e',
+              900: '#713f12',
+            },
+            slate: {
+              850: '#1a2332',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/static/css/custom.css" />
+
+  {% block head_extra %}{% endblock %}
+</head>
+<body class="font-sans text-slate-800 bg-white antialiased">
+
+  <!-- Navigation -->
+  <header class="bg-white border-b border-slate-100 sticky top-0 z-50">
+    <nav class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="/" class="text-slate-900 font-semibold text-base tracking-tight hover:text-solar-600 transition-colors">
+        strommarktberatung.de
+      </a>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="/#verguetung" class="text-slate-600 hover:text-slate-900 transition-colors hidden sm:inline">Vergütungsmodelle</a>
+        <a href="/#leistungen" class="text-slate-600 hover:text-slate-900 transition-colors hidden sm:inline">Leistungen</a>
+        <a href="/#checkliste" class="text-slate-600 hover:text-slate-900 transition-colors hidden sm:inline">Checkliste</a>
+        <a href="/#kontakt" class="bg-solar-400 hover:bg-solar-500 text-slate-900 font-medium px-4 py-2 rounded-md transition-colors text-sm">
+          Gespräch anfragen
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main content -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 py-12 mt-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
+        <div>
+          <div class="text-white font-semibold mb-3 text-sm">strommarktberatung.de</div>
+          <p class="text-sm leading-relaxed">
+            Unabhängige Einordnung von Direktvermarktungsangeboten für Betreiber von Solaranlagen.
+          </p>
+        </div>
+        <div>
+          <div class="text-white font-semibold mb-3 text-sm">Themen</div>
+          <ul class="text-sm space-y-2">
+            <li><a href="/#verguetung" class="hover:text-white transition-colors">Vergütungsmodelle</a></li>
+            <li><a href="/#leistungen" class="hover:text-white transition-colors">Leistungen</a></li>
+            <li><a href="/#checkliste" class="hover:text-white transition-colors">Checkliste</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-white font-semibold mb-3 text-sm">Rechtliches</div>
+          <ul class="text-sm space-y-2">
+            <li><a href="/impressum" class="hover:text-white transition-colors">Impressum</a></li>
+            <li><a href="/datenschutz" class="hover:text-white transition-colors">Datenschutzerklärung</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-slate-700 pt-6 text-xs text-slate-500">
+        Diese Beratung ersetzt keine Rechts- oder Steuerberatung.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Analytics & event tracking -->
+  <script src="/static/js/analytics.js"></script>
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>

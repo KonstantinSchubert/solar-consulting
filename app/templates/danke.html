@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Vielen Dank – PV Direktvermarktung Beratung{% endblock %}
+{% block meta_description %}Ihre Anfrage wurde erfolgreich übermittelt.{% endblock %}
+
+{% block content %}
+<div class="min-h-[60vh] flex items-center justify-center py-20 px-4">
+  <div class="max-w-lg text-center">
+
+    <!-- Success icon -->
+    <div class="w-16 h-16 bg-solar-100 rounded-full flex items-center justify-center mx-auto mb-6">
+      <svg class="w-8 h-8 text-solar-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+      </svg>
+    </div>
+
+    <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+      Vielen Dank für Ihre Anfrage!
+    </h1>
+
+    <p class="text-slate-600 leading-relaxed mb-8">
+      Ich habe Ihre Nachricht erhalten und melde mich in der Regel
+      innerhalb von 1–2 Werktagen bei Ihnen.
+    </p>
+
+    <!-- Checklist nudge -->
+    <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 mb-8 text-left">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-solar-100 rounded-lg flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5 text-solar-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="font-semibold text-slate-900 mb-1 text-sm">
+            Noch nicht heruntergeladen?
+          </div>
+          <p class="text-sm text-slate-600 mb-4">
+            Die kostenlose Checkliste: Direktvermarkter für Ihre PV-Anlage wählen
+          </p>
+          <a href="/static/downloads/checkliste-direktvermarktung.pdf"
+             id="checklist-download"
+             download
+             class="inline-flex items-center gap-2 bg-solar-400 hover:bg-solar-500 text-slate-900 font-semibold px-4 py-2 rounded-md transition-colors text-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+            </svg>
+            PDF herunterladen
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <a href="/" class="text-sm text-slate-500 hover:text-slate-700 transition-colors underline">
+      Zurück zur Startseite
+    </a>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // Track checklist download
+  document.getElementById('checklist-download')?.addEventListener('click', function() {
+    if (typeof trackEvent === 'function') {
+      trackEvent('checklist_download');
+    }
+  });
+</script>
+{% endblock %}
