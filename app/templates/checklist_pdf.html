@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<style>
+  /* ── Brand tokens ─────────────────────────────── */
+  :root {
+    --slate-900: #0f172a;
+    --slate-800: #1e293b;
+    --slate-700: #334155;
+    --slate-600: #475569;
+    --slate-400: #94a3b8;
+    --slate-200: #e2e8f0;
+    --slate-100: #f1f5f9;
+    --slate-50:  #f8fafc;
+    --solar-400: #facc15;
+    --solar-600: #ca8a04;
+    --solar-50:  #fefce8;
+  }
+
+  /* ── Page setup ───────────────────────────────── */
+  @page {
+    size: A4;
+    margin: 32pt 0 0 0;
+  }
+
+  @page :first {
+    margin: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 10.5pt;
+    color: var(--slate-700);
+    background: white;
+    line-height: 1.55;
+  }
+
+  /* ── Centered content column (~70% width) ─────── */
+  .col {
+    width: 68%;
+    margin: 0 auto;
+  }
+
+  /* ── Cover header ─────────────────────────────── */
+  .cover {
+    background: var(--slate-900);
+    color: white;
+    padding: 44pt 16% 36pt;
+  }
+
+  .cover-tag {
+    display: inline-block;
+    background: rgba(250, 204, 21, 0.12);
+    border: 1px solid rgba(250, 204, 21, 0.35);
+    color: #fde68a;
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3pt 8pt;
+    border-radius: 20pt;
+    margin-bottom: 18pt;
+  }
+
+  .cover-title {
+    font-size: 20pt;
+    font-weight: 700;
+    line-height: 1.25;
+    color: white;
+    margin-bottom: 10pt;
+  }
+
+  .cover-title span {
+    color: var(--solar-400);
+  }
+
+  .cover-subtitle {
+    font-size: 10pt;
+    color: #cbd5e1;
+    line-height: 1.55;
+    max-width: 380pt;
+    margin-bottom: 26pt;
+  }
+
+  .cover-meta {
+    display: flex;
+    align-items: center;
+    gap: 20pt;
+    padding-top: 20pt;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .cover-author-name {
+    font-size: 10pt;
+    font-weight: 600;
+    color: white;
+  }
+
+  .cover-author-role {
+    font-size: 8pt;
+    color: #94a3b8;
+    margin-top: 2pt;
+  }
+
+  .cover-domain {
+    margin-left: auto;
+    font-size: 8.5pt;
+    color: var(--solar-400);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── Intro box ────────────────────────────────── */
+  .intro {
+    background: var(--slate-50);
+    border-left: 3pt solid var(--solar-400);
+    margin-top: 24pt;
+    padding: 14pt 16pt;
+    font-size: 10pt;
+    color: var(--slate-600);
+    line-height: 1.6;
+  }
+
+  /* ── Main content ─────────────────────────────── */
+  .content {
+    padding: 22pt 0 80pt;
+  }
+
+  /* ── Section ──────────────────────────────────── */
+  .section {
+    margin-bottom: 20pt;
+    page-break-inside: avoid;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10pt;
+    margin-bottom: 10pt;
+    padding-bottom: 6pt;
+    border-bottom: 1pt solid var(--slate-200);
+  }
+
+  .section-number {
+    width: 20pt;
+    height: 20pt;
+    background: var(--slate-900);
+    color: white;
+    border-radius: 50%;
+    font-size: 8pt;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--slate-900);
+  }
+
+  /* ── Bullet lists ─────────────────────────────── */
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .items {
+    display: block;
+  }
+
+  .item {
+    display: block;
+    font-size: 9pt;
+    color: var(--slate-700);
+    line-height: 1.5;
+    margin-bottom: 5pt;
+    padding-left: 14pt;
+    position: relative;
+  }
+
+  .item::before {
+    content: "–";
+    color: var(--solar-600);
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+  }
+
+  /* Sub-items */
+  .subitems {
+    margin-top: 3pt;
+    margin-bottom: 2pt;
+    padding-left: 12pt;
+  }
+
+  .subitem {
+    display: block;
+    font-size: 8.5pt;
+    color: var(--slate-600);
+    line-height: 1.45;
+    margin-bottom: 2pt;
+    padding-left: 10pt;
+    position: relative;
+  }
+
+  .subitem::before {
+    content: "·";
+    color: var(--slate-400);
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+  }
+
+  /* ── Footer ───────────────────────────────────── */
+  .footer {
+    background: var(--slate-900);
+    color: #94a3b8;
+    font-size: 8pt;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10pt 16%;
+  }
+
+  .footer-left { color: white; font-weight: 600; }
+  .footer-right { color: var(--solar-400); }
+  .footer-disclaimer { font-size: 7pt; color: #64748b; margin-top: 2pt; }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- Cover header -->
+  <div class="cover">
+    <div class="cover-tag">Kostenlose Checkliste</div>
+    <div class="cover-title">
+      Direktvermarkter für Ihre<br/>
+      <span>PV-Anlage wählen</span>
+    </div>
+    <div class="cover-subtitle">
+      8 Punkte, die Sie vor der Unterzeichnung eines Direktvermarktungsvertrags prüfen sollten.
+      Eine Orientierung für Betreiber von Solaranlagen.
+    </div>
+    <div class="cover-meta">
+      <div>
+        <div class="cover-author-name">Konstantin Schubert</div>
+        <div class="cover-author-role">Strommarktberatung für PV-Betreiber</div>
+      </div>
+      <div class="cover-domain">strommarktberatung.de</div>
+    </div>
+  </div>
+
+  <!-- Intro + content in centered column -->
+  <div class="col">
+  <div class="intro">
+    Angebote von Direktvermarktern sehen auf den ersten Blick oft ähnlich aus — unterscheiden sich aber
+    erheblich in Vergütungsmodell, Risikoverteilung und technischen Anforderungen.
+    Diese Checkliste hilft, die richtigen Fragen zu stellen, bevor man unterschreibt.
+  </div>
+
+  <!-- Sections -->
+  <div class="content">
+
+    <!-- 1 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">1</div>
+        <div class="section-title">Vermarktungsmodell</div>
+      </div>
+      <ul class="items">
+        <li class="item">Wird die Anlage nach Marktwert Solar oder nach Spotpreis vergütet?</li>
+        <li class="item">
+          Falls Spotpreis: auf welcher Basis genau?
+          <div class="subitems">
+            <div class="subitem">Day-Ahead</div>
+            <div class="subitem">Intraday</div>
+            <div class="subitem">Mischmodell / synthetisches Modell</div>
+          </div>
+        </li>
+        <li class="item">Wie transparent ist die Preisbildung und die spätere Abrechnung?</li>
+      </ul>
+    </div>
+
+    <!-- 2 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">2</div>
+        <div class="section-title">Gebührenmodell</div>
+      </div>
+      <ul class="items">
+        <li class="item">
+          Wie ist das Gebührenmodell aufgebaut?
+          <div class="subitems">
+            <div class="subitem">Fixer Monatsbetrag</div>
+            <div class="subitem">Revenue Share</div>
+            <div class="subitem">Kombination aus beidem</div>
+          </div>
+        </li>
+        <li class="item">
+          Welche weiteren Kosten fallen an?
+          <div class="subitems">
+            <div class="subitem">Vermarktungsgebühr</div>
+            <div class="subitem">Bilanzkreis-/Regelenergiekosten</div>
+            <div class="subitem">Setup-/Einrichtungskosten</div>
+            <div class="subitem">Kosten für Fernsteuerung / Hardware / Gateway</div>
+          </div>
+        </li>
+        <li class="item">Welche Kosten sind im Preis enthalten — und welche werden separat abgerechnet?</li>
+      </ul>
+    </div>
+
+    <!-- 3 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">3</div>
+        <div class="section-title">Negativpreise und Abregelung (Curtailment)</div>
+      </div>
+      <ul class="items">
+        <li class="item">Kann und wird der Direktvermarkter bei negativen Preisen aktiv abregeln?</li>
+        <li class="item">Ab welchem Preissignal und auf welcher Marktgrundlage erfolgt das?</li>
+        <li class="item">Wenn nicht abgeregelt wird: Wer trägt die Kosten negativer Preise?</li>
+        <li class="item">Kann die Abregelungslogik berücksichtigen, dass bei negativen Preisen ggf. noch Förderung besteht?</li>
+        <li class="item">Kann die Logik korrekt berücksichtigen, wann die Förderung nach den geltenden Stunden-/Viertelstundenregeln entfällt?</li>
+      </ul>
+    </div>
+
+    <!-- 4 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">4</div>
+        <div class="section-title">Commercial Curtailment</div>
+      </div>
+      <ul class="items">
+        <li class="item">
+          Führt der Direktvermarkter auch Commercial Curtailment bei nicht-negativen Preisen durch?
+          <div class="subitems">
+            <div class="subitem">Portfoliooptimierung</div>
+            <div class="subitem">Bilanzkreismanagement</div>
+            <div class="subitem">Marktposition long/short</div>
+            <div class="subitem">Andere kommerzielle Gründe</div>
+          </div>
+        </li>
+        <li class="item">Unter welchen Bedingungen ist das vertraglich erlaubt?</li>
+        <li class="item">
+          Gibt es eine Kompensation für:
+          <div class="subitems">
+            <div class="subitem">Entgangene Erlöse</div>
+            <div class="subitem">Zusätzliche Schaltvorgänge</div>
+            <div class="subitem">Mögliche erhöhte Anlagenabnutzung</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 5 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">5</div>
+        <div class="section-title">Eigenverbrauch bei Curtailment</div>
+      </div>
+      <ul class="items">
+        <li class="item">Kann beim Abregeln der Eigenverbrauch erhalten bleiben?</li>
+        <li class="item">Welche technische Umsetzung ist dafür vorgesehen?</li>
+      </ul>
+    </div>
+
+    <!-- 6 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">6</div>
+        <div class="section-title">Kündigungsfristen</div>
+      </div>
+      <ul class="items">
+        <li class="item">Welche Fristen sind bei der Kündigung einzuhalten?</li>
+        <li class="item">Wer darf wann und unter welchen Bedingungen kündigen?</li>
+      </ul>
+    </div>
+
+    <!-- 7 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">7</div>
+        <div class="section-title">Technische Voraussetzungen / Hardware</div>
+      </div>
+      <ul class="items">
+        <li class="item">
+          Welche Hardware ist erforderlich?
+          <div class="subitems">
+            <div class="subitem">Fernwirktechnik</div>
+            <div class="subitem">Smart Meter / iMSys</div>
+            <div class="subitem">Datenlogger / Controller</div>
+          </div>
+        </li>
+        <li class="item">Unterstützen andere Anbieter diese Hardware — oder entsteht ein Lock-in?</li>
+        <li class="item">
+          Welche Voraussetzungen gelten speziell für:
+          <div class="subitems">
+            <div class="subitem">Aktives Curtailment</div>
+            <div class="subitem">Erhalt von Eigenverbrauch beim Abregeln</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 8 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">8</div>
+        <div class="section-title">Support und Umgang mit kleinen Anlagen</div>
+      </div>
+      <ul class="items">
+        <li class="item">Gibt es einen erreichbaren Support und feste Ansprechpartner?</li>
+        <li class="item">Wie sind die Erfahrungen speziell mit kleinen Anlagen?</li>
+        <li class="item">Werden kleine Betreiber ernst genommen oder nur standardisiert mitverwaltet?</li>
+        <li class="item">
+          Wie schnell reagiert der Vermarkter bei:
+          <div class="subitems">
+            <div class="subitem">Technischen Problemen</div>
+            <div class="subitem">Abrechnungsfragen</div>
+            <div class="subitem">Fehlsteuerungen</div>
+            <div class="subitem">Inbetriebnahmefragen</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div><!-- /content -->
+  </div><!-- /col -->
+</div><!-- /page-wrap -->
+
+<!-- Fixed footer -->
+<div class="footer">
+  <div>
+    <div class="footer-left">Konstantin Schubert</div>
+    <div class="footer-disclaimer">Diese Checkliste ersetzt keine Rechts- oder Steuerberatung.</div>
+  </div>
+  <div class="footer-right">strommarktberatung.de · mail@konstantinschubert.com · +49 151 22726695</div>
+</div>
+
+</body>
+</html>
